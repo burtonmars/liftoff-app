@@ -113,14 +113,17 @@ export default function TaskSheet({ open, task, onClose }: Props) {
             </div>
 
             <form onSubmit={handleSubmit} className="px-5 py-4 space-y-5 pb-safe">
-              <input
-                type="text"
-                placeholder="What do you need to do?"
-                value={form.title}
-                onChange={(e) => setForm(f => ({ ...f, title: e.target.value }))}
-                className="w-full text-base font-medium text-gray-900 placeholder-gray-300 border-none outline-none focus:outline-none bg-transparent"
-                autoFocus={!task}
-              />
+              <div className="space-y-1">
+                <label className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Task</label>
+                <input
+                  type="text"
+                  placeholder="What do you need to do?"
+                  value={form.title}
+                  onChange={(e) => setForm(f => ({ ...f, title: e.target.value }))}
+                  className="w-full text-lg font-medium text-gray-900 placeholder-gray-300 border-none outline-none focus:outline-none bg-transparent"
+                  autoFocus={!task}
+                />
+              </div>
 
               <textarea
                 placeholder="Notes (optional)"
