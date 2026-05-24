@@ -1,11 +1,18 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import BottomTabBar from './BottomTabBar';
 import TaskSheet from './TaskSheet';
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const [quickAddOpen, setQuickAddOpen] = useState(false);
+  const pathname = usePathname();
+  const isLogin = pathname === '/login';
+
+  if (isLogin) {
+    return <>{children}</>;
+  }
 
   return (
     <div className="min-h-screen bg-[#FAFAF8]">
